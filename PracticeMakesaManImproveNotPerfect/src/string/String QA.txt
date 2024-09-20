@@ -1,0 +1,56 @@
+1. What is the difference between str1 == str2 and str1.equals(str2)?
+
+Essentially, equals() is a method, while == is an operator.
+The == operator can be used for comparing references (addresses) 
+and the .equals() method can be used to compare content. 
+To put it simply, == checks if the objects point to the same memory location, 
+whereas .equals() compares the values of the objects.
+
+ Is String a primitive or derived type in Java?
+ Strings are derived data types. 
+ Strings are Java objects that represent sequences of characters. 
+ String objects are created using the java.lang.String class. 
+ There are many functions that need to be called upon when processing a string, 
+ such as substring(), indexof(), equals(), toUppercase(), etc, which primitives types do not have.
+
+ 3. Explain String pool in Java.
+
+ String Pool, also known as SCP (String Constant Pool), 
+ is a special storage space in Java heap memory that is used to store unique string objects. 
+ 
+ Whenever a string object is created, it first checks whether the String object with the same string value is already present in the String pool or not, 
+ and if it is available, then the reference to the string object from the string pool is returned
+ it will consider the same object.if not  Otherwise, the new string object is added to the string pool, 
+ and the respective reference will be returned.
+ 
+ 
+ 4.Is String immutable or final in Java? If so, then what are the benefits of Strings being Immutable?
+ 
+ Strings are immutable in Java. 
+ Immutable objects mean they can't be changed or altered once they've been created. 
+ However, we can only modify the reference to the string object.
+ 
+  The String is immutable in Java because of many reasons like security, caching, synchronization and concurrency, and class loading.
+  
+ 
+ 5. State the difference between String and StringBuffer.
+
+String objects in Java are immutable and final, 
+so we can't change their value after they are created. 
+Since strings are commonly used in applications, we need to perform several operations on them such as 
+substring(), equals(), indexof(), toUppercase(), etc.
+ Each time we manipulate a string, a new String object is created, and all previous objects will be garbage,
+  placing a strain on the garbage collector. This is why The Java team developed StringBuffer. 
+  A StringBuffer is a mutable object, meaning it can be changed, but the string is an immutable object, so it cannot be changed once it has been created. 
+
+
+
+6.What does the string intern() method do in Java?
+
+If you apply the intern() method to a few strings, you will ensure that all strings having the same content share the same memory. As soon as a String object is invoked with intern(), it first checks if the string value of the String object is already present in the string pool and if it is available, then the reference to that string from the string constant pool is returned. If not, a new string object is added to the string pool, and a reference to it is returned.
+
+Example:
+
+String str1 = new String("Scaler by InterviewBit").intern();  //Line1  
+String str2 = new String("Scaler by InterviewBit").intern(); //Line2  
+System.out.println(str1 == str2); //prints true  

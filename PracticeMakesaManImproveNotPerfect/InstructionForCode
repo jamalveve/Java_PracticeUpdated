@@ -1,0 +1,423 @@
+1)Access Specifier:-done
+********************
+Public
+*******
+ ->if it is static return void type from same classdifferentclassclass from diffrent package we can directly access through className.methodname();
+ ->if it is nonstatic returnvoid type from same class different classdifferent class from other package we can create am obj for that particular class
+->if it is a static return void type from subclass (same paclagediff package) we can access through classname.methodname
+->if it is a nonstatic returnvoid type from subclass(same packagediffere packlage) we can dorectly access both parent class methods and suclass methods 
+using child class object only.
+
+summary:The `public` modifier allows elements to be accessible from any other class in the application, regardless of the package. 
+
+protected-doubt
+****************
+->if it is static return void type from same classdifferentclass we can directly access through className.methodname();
+->if it is nonstatic returnvoid type from same class different class we can create am obj for that particular class
+->if it is a static return void type from subclass (same paclagediff package) we can access through classname.methodname
+->if it is a nonstatic returnvoid type from subclass(same packagediffere packlage) we can dorectly access both parent class methods and suclass methods 
+summary:The protected access specifier in Java allows members to be accessed within the same class, subclasses, and classes in the same package.
+
+defaults-package private
+**************************
+->if it is static return void type from same classdifferentclass we can directly access through className.methodname();
+->if it is nonstatic returnvoid type from same class different class we can create am obj for that particular class
+->if it is a static return void type from subclass (same package) we can access through classname.methodname
+->if it is a nonstatic returnvoid type from subclass(same package) we can directly access both parent class methods and suclass methods 
+
+summary:The `default`access specifier in Java allows members to be accessed within the same class, subclasses, and classes in the same package.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+2)copyConstrucrtor:-check about this
+**************************************
+
+creating one normal constructor and also one more copy constructor and passing a constructor name and obj as parameter in this copy constructor.
+->shallow copy
+->deep copy
+
+constrcutor level -doubt 
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+3)method hiding in inheritance
+********************************
+
+if we crete obj for child class only static methods of child is visibile
+child cjhilobj=new child();
+
+'even though we upcast as it it only reference of parents still we will get parent methood only visibilt not the child method
+but in upcasting if it is non static method then by upcasting also ,child method is visible
+
+so making the method static in bpth parent and child class we can hide the child methods and achive method hiding
+
+how will you hide the parent method?
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+4)inheritance-done
+********************
+
+through parent obj-> only parent methods are visible
+through child all methods are visible
+if we create a reference and pass child obj reference
+->basically  by child class all the method from parent is visible but making it static in both parent and child (particular method): achieving metong method hiding
+metpod hiding:->
+printing childobj.staticmethod is printing child static so hiding parent
+
+
+if we upcast to child,depends on the staticno static explained above we can get the child or parent methods visible
+
+->basically Upcasting only allow acces to parent method unlesss we override non static,anyways static cant be overided thats why
+static->parent method is visible
+non static->child method is visible
+ex:
+
+   passing the child referencde created as object(also upcasting only)
+	   MainCladssInheritance refernce=childobj; 
+	   refernce.commons();as it is non static child is visible
+    refernce.commonsstatic();parent is comming as static 
+	   
+   upcasting
+   
+	   MainCladssInheritance upcastobj=new SingleInheritanceExample(); 
+	   upcastobj.commons();as it is non static method child is visible
+	   
+	   SingleInheritanceExample childobj1=parentobj;not possible
+	   
+	  
+	   upcastobj.commonsstatic();parnet is comming as it is static
+	   
+Summary:
+->f you call parent parentobj=new parent()->only pareny method is visible
+
+
+->if ypu call child childobj=new Child()->all parent method and child are visble ,
+and by creating object for child ,if you want to hide the parent method create the same method in child and make both static
+now child method is visible and child will hide the parent method for child obj 
+(so using child object->static methods->child method visible)
+(so using Upcast object->static methods->parent method visible)
+below:check
+
+->when ypu do upcast,Parent parentref=new Child();->upcasting will give only parent method  child method will be rstricted for upcasting
+so when you overide ->non static ->child will be visible 
+so when you overide ->static ->Parent will be visible 
+
+
+summary for code:overriding inheritance
+#)scenario 1
+parentclass parentobj=new Parentclass()
+Parentobj.instancemethod->Instance method in Parent class.
+Parentobj.staticmethod-> Static method in Parent class.
+
+Childclass childobj=new childclass()
+
+childobj.instancemethod->Instance method in Child class.
+childobj.staticemethod->->Static method in child class.(method hiding)
+childobj.notoveridedStaticmethod->static methid in 
+
+ParenClass ref=new Childclass();
+
+ref.instancemethod->Instance method in Child class.
+ref.staticmethod  ->Static method in Parent class.
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+	   
+5)method overloading
+***********************	   
+
+no need to declare varable we can directlt create a overloading methods and do the implemenetation
+it varies according to the parameters
+as it is method we can have public,protected and default methods not private if we are calling from different class
+
+as it this method it can be public,prptected,default an dprivate and static and nonstatic as well
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+6)method overrding
+******************
+->Static methods can not be overridden.  
+making it static can be used to hhide the child class implementation mentioned above
+Y?->static methods are not associated with the instance of a class, but with the class itself.
+ Therefore,if subclass overides it subclass need to created object and static is not instance level doesnot make sense 
+it cannot modify the behavior of the static method in any way.22 Mar 2023
+->Final methods can not be overridden.  
+->Private methods can not be overridden.  
+->A constructor can not be overridden.
+->Use the super keyword to invoke the overridden method from the child class. 
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+7)constructor ->
+******************
+First:definition and use
+########################
+->In Java, a constructor is a special method used to initialize objects when they are created.
+-> a constructor is a reusable block of code
+which means we can call it from its subclasses/or same class during the" creation of the objects"
+-> Constructor name should be same as class name.
+->constructor wont have return type
+->we use this.keyword to make the constructor differntiate the parametres and declaredavrables
+-> If you don\'t define a constructor for a class, a default parameterless constructor is automatically generated by compiler
+->(if you are creating a param constructor,and creating object(instnatiate) for zero param constructor )
+note if you write your own costrtuctor compiler wont call any default constructor so you have to create obj for the right constructor
+((check Examle12 in constructor package in quizz project)
+Second:achive
+##############
+->we can achieve constructor overloading in object level
+->we can achieve constructor chaining also
+->We can achieve constructor chaining in two ways:
+Within the same class: If the constructors belong to the same class, we use" this"
+From the base class: If the constructor belongs to different classes (parent and child classes),
+ we use the super keyword to call the constructor from the base class.
+->instance variable/global variable can be changed/modified inside the constructor
+ 
+Third:Overiding
+###############
+->we can override a non constrctor method(non static methods) method inside the constructor class
+->but we cant override the constructor inside the subclass constructor /class
+bcz Constructors are not inherited in java. Each class has its own constructors, and they do not participate in polymorphism(overroding) like regular methods.
+However, a subclass constructor can call a superclass constructor using the super keyword.
+
+Fourth:access specifier 
+##############################
+->as it this constructor class (the class which has constrctor )it can be public,abstract ,final
+and the constructor(inside the clss) can be public ,protected and private
+but cant be abstract (as it is not a abstract clss).cant be final,cant be synchronised
+
+->cant be abstract-> Since constructors are called when an object is created, having an abstract constructor would prevent any object from being created, and abstract are methods which donthave body and used by child classs for construtcor no inheriotance only 
+-> cant be static(as it is not a compiletime way,constructor will be called in the runtime at the time when instance are created)
+ so when we declare it as static, it can not be used by its subclass So, it is illegal to declare a constructor as static.
+->cant be final y ->One of the important property of java constructor is that it can not be final. As we know, constructors are not inherited in java. Therefore, constructors are not subject to hiding or overriding. When there is no chance of constructor overriding, there is no chance of modification also. When there is no chance of modification, then no sense of restricting modification there. 
+
+Fifth:Private Things
+#####################
+->"if any method inside the constructors are only private you cant extend that classs by any other child class"(compiler error->Implicit super constructor Example2() is not visible for default constructor. Must define an explicit constructor)
+(check Examle11 in constructor package in quizz project)
+->if any constrcutor is private in super class you cant create same constructor  in child class class (check Sample 6 and 11 in constructor package in quizz project)
+and you have to call the constructor (which is not private) explicity in child class
+Reason:Y?
+Private Constructor: When a constructor is declared private, it means that it can only be accessed within the same class. No external classes, including subclasses, can access or call it.
+Subclass Constructor: When you attempt to instantiate SubClass, the constructor of SubClass implicitly tries to call the constructor of its superclass (SuperClass). Because SuperClass's constructor is private, SubClass cannot access it and thus cannot co
+
+SIxth:superclass childclass 
+############################
+doubt:
+->If the superclass has only parameterized constructor and no default zero param constructor 
+ then you  have to define your own constructors in the subclass to call the superconstructor using super,
+ or keep zero param constructor in super classs itself(check Example9 in constructor package in quizz project)
+ it can be zero param /param constructor from your subclass ,but you must call one of the superclass’s param constructors explicitly.
+ 
+ 3 Reasons y?:
+1)Constructor Requirement: When a subclass is instantiated, the constructor of the superclass must be invoked to properly initialize the inherited attributes.
+ If there is no zero-parameter constructor in the superclass, you must provide a way to call one of its parameterized constructors.
+2)No Default Constructor: If the superclass does not provide a default constructor, the compiler does not automatically insert a call to super() in the subclass constructor. You must explicitly specify which parameterized constructor to call in the subclass.
+3)Maintaining Initialization Logic: By calling the superclass's parameterized constructor, you ensure that all necessary initialization defined in the superclass is carried out. This maintains the integrity of the object’s state.
+
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+8)ABstract class--done -doubt in final variable
+*****************
+1)Definition and use case:
+#######################
+when to use abstract class?
+ ->An abstract class can be used when we need to share the same method to all non-abstract sub classes with their own specific implementations.
+when to use abstrat methods?
+  When the same method has to perform different tasks depending on the object calling it.
+absract class->abstract key word must
+->abstract class can have abstract and default methods
+->abstract class can't be instantiated
+->it can have any type of concrete methods irrespective of access specifier and access static and nonstatic) ,but 
+->the abstract method should be only public protected or default "no final methods(cant override),no private methods(cant access only),and no static methods(cant modify) as well"
+->The subclass of abstract class in java must implement all the abstract methods "unless the subclass is also an abstract class"
+so if you dont want to implement  all the abstract  method from your super class ,make you child class itslef abstract.
+->Abstract methods cannot be private .it doesnot make sense bcz abstract class cant be instantiated and by instantiating child class of abstract class also 
+private method is wont be visible 
+
+2)Constructors level
+######################
+->abstract class can have constructors (check Example3 in Abstract package in quizz Project)
+->. Why abstract class has constructor even though you cannot create object?
+
+Ans: We cannot create an object of abstract class but we can create an object of subclass of abstract class. When we create an object of subclass of an abstract class, it calls the constructor of subclass.
+
+This subclass constructor has a super keyword in the first line that calls constructor of an abstract class. Thus, the constructors of an abstract class are used from constructor of its subclass.
+
+If the abstract class doesn’t have constructor, a class that extends that abstract class will not get compiled.
+
+y constructor ->Initialization of Fields: Even though you cannot instantiate an abstract class directly, it can have fields that need to be initialized. 
+The constructor can set initial values for these fields, which can be inherited by subclasses.
+
+->if abstract class has private constructor only you cant instantiate the class(compiler errror->Implicit super constructor Example2() is not visible for default constructor. Must define an explicit constructor)\same  story like constcrutor
+unless 2 scenarios :check example 2 and example 8
+
+->doubt but it can have final variables declared in the constructor class and we can init also in the constructor 
+
+->an abstract class can exist without any abstract methods. Here’s why and how such classes are used:
+
+Reasons for Using Abstract Classes Without Abstract Methods:
+Preventing Instantiation: Declaring a class as abstract prevents it from being instantiated directly. This can be useful if you want to provide a base class that shouldn't be created on its own but can still contain shared code for subclasses.
+Common Functionality: An abstract class can provide common functionality (methods, fields, etc.) that can be shared among its subclasses. Even without abstract methods, it can define behavior that all subclasses can use.
+Template for Future Expansion: By declaring a class as abstract, you signal to other developers that this class is intended to be a base class. They may add abstract methods in the future, or other developers might extend the class knowing that it is part of a larger hierarchy.
+Encapsulation of Behavior: An abstract class can encapsulate behavior that should not be tied to a specific implementation. This allows for more flexible and maintainable code, especially in complex systems.
+
+-> What is the advantage of Abstract class in Java?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Encapsulation of Common Behavior
+Abstract classes allow you to define common methods and fields that can be shared among subclasses. This reduces code duplication and promotes code reuse.
+2. Defining a Template
+They serve as a blueprint for subclasses, enforcing a certain structure and ensuring that subclasses implement specific methods. This can help maintain consistency across related classes.
+3. Partial Implementation
+Abstract classes can have both abstract methods (without implementation) and concrete methods (with implementation). This allows you to provide default behavior 
+that subclasses can inherit or override.(ploymorphysm)
+
+Q/A
+1)Why should we create reference to superclass (abstract class reference)(why we should do upcasting the abstract class)?
+by using upcasting you cant access the child own methods access only parent methods so this restricts the subclass methods 
+(Example 6 )
+Thus, any programmer cannot add their own additional features in subclasses other than whatever is given in superclass.unless you are creating object of child classes
+
+2)how will you call the concrete methods in abstract class ?
+(Example 7)check 
+Either call with the child class objects or making it static and call it with classname.methodname
+
+3)ABstarct class we cant create instance how will you call the constructor?
+->constructor calling is possible only by method chaining (super())as it is inside abstract class,we can overload constructor also
+
+
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+9)interface:-done
+************
+->cantv= instantiate
+->interface can have only abstract method befor java8
+->only public, private, abstract, default, static and strictfp are permitted-in generall
+"except protected" Y?->check
+->and all above  method should have body except public and abstract
+->multiple inheritance is possible no confusion in parent bcz parent have avstracr methods
+-> From Java 8, interfaces can contain default and static method implementations.
+->From Java 9, interfaces can also contain private method implementations.
+->we can extend first and implement next same time in by one class(the class which we are extending can have public ,protected,static,non static ,
+but not privates makes sense until that class has main mehod and we are trying to implement)
+->interface to interface extends also posible
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+10)Super vs super()-super class level
+**************************************
+
+->super is a  or keyword which can be used to call a super class varaibles and methods fro child classconstructor
+ex:super.variable;  ex:super.methodname();
+
+->super() is a statementconstrcutor call we can call the super constructor from the child condtructor
+->this should be in the firts line of the child constructor 
+->not in method level
+->we can call any methods and varibles except private (it doessnot make sense from subsclass)
+->if you have a parmeteroised or zero parmeterise construcor youbhave to call it by cpnstructor obj only 
+like ->constructorobj.methodinconstructor();(method which prints it)or using super statment in subclass
+it wont print by child obj ->calling childobj.methodinConstructor();(method which prints it)->wont work in this case of subclass
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+11)this vc this()-6 ways-within the class level-doubt inn 6th point
+******************
+Constructorlevel-3 ways
+^^^^^^^^^^^^^^^
+->this keyword is use to differentiate the  local variable and instance variable.(constructorblevel)
+->If local variables(formal arguments) and instance variables are completely different, 
+there is no need to use this keyword.
+->to invoke current class constructor->costructor call from another constryctor shuld be om the forst line of the constructor
+->recursive constructor invocation is not possible
+We can pass the "this" keyword in the constructor also.
+ It is useful if we have to use one object in multiple classes.
+
+classlevel-3 ways
+^^^^^^^^^^^
+-> we can use this to invoke current class method  ex:this.methodname();->can be any line in the method
+->The "this" keyword can also be passed as an argument in the method. It is mainly used in the event handling.
+->his keyword can be used to return current class instance . In such case, return type of the method must be the class type (non-primitive).. In such case, return type of the method 
+must be the class type (non-primitive).
+Syntax of this that can be returned as a statement
+return_type method_name(){  
+return this;  
+__________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+12)encapsulation->
+*******************
+->binding data member and function members togetherwrapping it together in to single unit
+->e can create a fully encapsulated class in Java by making all the data members of the class private.
+ Now we can use setter and getter methods to set and get the data in it.
+ ->by doing this we can[ achieve data hiding,control over the data,easy to test(bettr for unit testing)
+ Data Hiding and controll over the data:
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+It just provides a way to protect your data from the outside world. What it means is,
+lets say if I made my instance variable public, then anyone can change its state. 
+But if we make our instance variable privateprotected then actually we are restricting 
+outside entities from making changes to it.
+ ->when we give only setter method it become write only class
+ ->when we give only getter method it becomes read only
+}  
+__________________________________________________________________________________________________
+13COMPARATOR and COMPARABLE:
+############################
+Comparator(I)
+*************
+           ->comparator is like if you want to specify on which logic you want to sort elements  ( custom sorting ) +
+           ->we have compare method in this interface
+Collection wise:
+^^^^^^^^^^^^^^^^
+ 
+if it accept Collections.sort->Collections.sort(collectionclass,Comparator);
+if not->covert that collection to the collection which accepts Collections.sort and implemet that same
+
+Class Wise
+*********** 
+you can use comparator to specify your ownlogic 
+Ex:
+System.out.println("printing after sorting");
+		Comparator<Person> CustomComparator=new Comparator<Person>() {
+
+			@Override
+			public int compare(Person o1, Person o2) {
+				if(o1.age>o2.age) {
+					return 1;
+				}else {
+					return -1;
+				}
+			}
+			
+		};
+		Collections.sort(personList,CustomComparator);
+		
+Comparable(I)
+*************
+         ->if you want to give a power to class itself to compare the object
+         ->you can implement Comparable and overide the compareTo method and write the logic
+         
+Collection wise:
+^^^^^^^^^^^^^^^^^
+as String class and Integer class implemnts this comparable interface no  need to use this in collection you can directly use 
+Collection.sort();
+
+Class Wise
+*********** 
+ if you want to give a power to class itself to compare the object
+  you can implement Comparable and overide the compareTo method and write the logic
+ 
+
+__________________________________________________________________________________________________
+
+14)Type casting 
+upcasting->converting the value from smaller to larger
+downcasting->coverting the value from smaller to larger
+
+    upcasting->lowyer to higher->automatic prpcess
+	 Ex:
+	int-->long
+	float-->double
+	
+	downcasting->higher to lowyer-manual process
+	 Ex:
+	long--.>int
+	double--->float
+	
+__________________________________________________________________________________________________
+
+How to achieve method hiding in Java?
+Method hiding may happen in any hierarchy structure in java. When a child class defines a static method with the same signature as a static method in the parent class, then the child's method hides the one in the parent class.17 Mar 2024
+__________________________________________________________________________________________________
+pass by value and reference-doubt

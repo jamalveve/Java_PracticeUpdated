@@ -1,0 +1,70 @@
+1)variables and methods
+***********************
+variable
+^^^^^^^^^^
+  ->local varivale and global variables
+  ->non statuc ave to  create onject and call
+  ->static classsname.vafiablename
+  ->local variable must be ijnitialised and only final local variable is allowed
+  ->inside non static method you can access both static and non static variables
+  ->but inside static method you can access only static variables'
+  ->any final vafrible whicg is local or global cant be modfied.
+  ->if we cret=ate a obj n another class by above ways we can access variables
+  
+ Methods
+ ^^^^^^^^^
+ ->non static and static methods
+ _>non static object createvhave to do
+ ->static classsname.methodname
+ ->final methods cant be overided 
+ ->final method can be called from any class inside the same package(package private)
+ 
+if else
+**************
+->
+loops
+Arrays'
+Strings
+**********
+string builder
+String Buffer
+
+
+comparator/comparable-
+***********************
+
+
+2)static blocks
+*************
+->invoke in constructor and class as well
+->runs before main method
+->more than one satic block we can keep in the class or constructor
+->cant call nonstatic methods inside static block
+-> A static block is not called by you or any other part of your code,
+ it's automatically called by the Java Virtual Machine (JVM) when the class is loaded.
+ ->The static block for a class gets executed when the class is accessed ,to create an instance,
+
+3)marker interface
+*******************
+4)spilterator/iterator
+*************************
+
+5)serialization/deserialization
+****************************
+For serializing the object, we call the writeObject() method of ObjectOutputStream class, and for deserialization we call the readObject() method of ObjectInputStream class.
+->when we do marshalling this is usefull
+->
+method and constructor chaining->
+
+ 
+double braces/anonymous inner class
+***********************************
+Java anonymous inner class is an inner class without a name and for which only a single object is created
+ An anonymous inner class can be useful when making an instance of an object with certain "extras" such as 
+ overloading methods of a class or interface, without having to actually subclass a class.
+
+doubts
+******
+1)method hiding
+2)method chaining
+3)return this();

@@ -1,0 +1,52 @@
+String
+********
+Java String
+In Java, string is basically an object that represents sequence of char values. An array of characters works same as Java string. For example:
+
+char[] ch={'j','a','v','a','t','p','o','i','n','t'};  
+String s=new String(ch);  
+is same as:
+
+String s="javatpoint";  
+ava String class provides a lot of methods to perform operations on strings such as compare(), concat(), equals(), split(), length(), replace(), compareTo(), intern(), substring() etc.
+ But in Java, string is an object that represents a sequence of characters. 
+ The java.lang.String class is used to create a string object.
+ continue on ->https://www.javatpoint.com/java-string\
+ Why Java uses the concept of String literal?
+To make Java more memory efficient
+ (because no new objects are created if it exists already in the string constant pool).
+ ->Why String class is Final in Java?
+The reason behind the String class being final is because no one can override the methods of the String class. So that it can provide the same features to the new String objects as well as to the old ones.
+
+ comtinue this->https://www.javatpoint.com/string-concatenation-in-java
+ 
+ Singletonclass
+ *******************
+ A Singleton class is a class that allows only one instance of itself to be created and provides a global point of access to that instance. 
+ Implementing a Singleton Class in Java 
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Declare a private static variable to hold the single instance of the class.
+Make the constructor of the class private, so that no other instances can be created.
+Provide a public static method to return the single instance of the class, creating it if necessary.
+
+Example 1: Singleton Class with Eager Initialization
+
+public class Singleton {  
+    private static final Singleton instance = new Singleton();  
+    private Singleton() {}  
+    public static Singleton getInstance() {  
+        return instance;  
+    }  
+}  
+Eample2:we will use lazy initialization
+
+public class Singleton {  
+    private static Singleton instance;  
+    private Singleton() {}  
+    public static synchronized Singleton getInstance() {  
+if (instance == null) {  
+instance = new Singleton();  
+}  
+return instance;  
+}  
+}  

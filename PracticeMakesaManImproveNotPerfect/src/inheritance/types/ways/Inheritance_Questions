@@ -1,0 +1,101 @@
+1. What is Inheritance in Java?
+2.2. Why do we need to use inheritance?
+We can reuse the code from the base class.
+Using inheritance, we can increase features of class or method by overriding.
+Inheritance is used to use the existing features of class.
+It is used to achieve runtime polymorphism i.e method overriding.
+3.What is Is-A relationship in Java?
+
+Ans: Is-A relationship represents Inheritance. It is implemented using the “extends” keyword. 
+It is used for code reusability.
+4. What is super class and subclass?
+7. Which class in Java is superclass of every other class?
+
+Ans: In Java, Object class is the superclass of every other class.
+9. Can a class extend itself?
+
+Ans: No, a class cannot extend itself.
+
+10. Can we assign superclass to subclass?
+Ans: No.
+11. Can a class extend more than one class?
+
+Ans: No, one class can extend only a single class.
+12. Are constructor and instance initialization block inherited to subclass?
+
+Ans: No, constructor and instance initialization block of the superclass cannot be inherited to its subclass but they are executed while creating an object of the subclass.
+check program
+13. Are static members inherited to subclass in Java?
+
+Ans: Static block cannot be inherited to its subclass.
+
+A static method of superclass is inherited to the subclass as a static member and non-static method is inherited as a non-static member only.
+
+Can we extend (inherit) final class?
+
+Ans: No, a class declared with final keyword cannot be inherited.
+y ->constant we cabt modify 
+15. Can a final method be overridden?
+
+Ans: No, a final method cannot be overridden.
+16. Can we inherit private members of base class to its subclass?
+
+Ans: No.
+17. What is order of calling constructors in case of inheritance?
+
+Ans: In case of inheritance, constructors are called from the top to down hierarchy.
+20. What are the types of inheritance in Java?
+
+Ans: The various types of inheritance are as follows:
+
+a. Single inheritance
+b. Multi-level inheritance
+c. Hierarchical inheritance
+d. Multiple inheritance
+e. Hybrid inheritance
+23. What is Multiple inheritance in Java?
+24. Why multiple inheritance is not supported in java through class?
+Ans:
+
+Multiple inheritance means that one class extends two superclasses or base classes but in Java, one class cannot extend more than one class simultaneously. At most, one class can extend only one class.
+
+Therefore, to reduce ambiguity, complexity, and confusion, Java does not support multiple inheritance through classes.
+25. How does Multiple inheritance implement in Java?
+
+Ans: Multiple inheritance can be implemented in Java by using interfaces. A class cannot extend more than one class but a class can implement more than one interface.
+
+26. What is Hybrid inheritance in java? How will you achieve it?
+
+Ans: A hybrid inheritance in java is a combination of single and multiple inheritance. It can be achieved through interfaces.
+
+27. How will you restrict a member of a class from inheriting its subclass?
+
+Ans: We can restrict members of a class by declaring them private because the private members of superclass are not available to the subclass directly. They are only available in their own class.
+
+28. Can we access subclass members if we create an object of superclass?
+
+Ans: No, we can access only superclass members but not the subclass members.
+29. Can we access both superclass and subclass members if we create an object of subclass?
+
+Ans: Yes, we can access both superclass and subclass members. until you have same atatic method
+
+33. Is interface inherited from the Object class?
+
+Ans: No.
+https://www.scientecheasy.com/2021/02/inheritance-interview-questions.html/2/#google_vignette-comtinue
+
+
+https://javaconceptoftheday.com/java-inheritance-practice-coding-questions/
+
+
+34)12) You know that  compiler will keep super() calling statement implicitly as a first statement in every constructor. What happens if we write this() as a first statement in our constructor?
+
+View Answer
+Answer :
+Compiler will not keep super() if you are writing this() as a first statement in your constructor.
+
+39) When you instantiate a sub class, super class constructor will be also executed. True or False?
+
+View Answer
+Answer :
+True

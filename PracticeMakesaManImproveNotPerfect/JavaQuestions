@@ -1,0 +1,13 @@
+1) Why we override equals() method?
+The equals method is used to check whether two objects are the same or not. It needs to be overridden if we want to check the objects based on the property.
+
+For example, Employee is a class that has 3 data members: id, name, and salary. However, we want to check the equality of employee object by the salary.
+Then, we need to override the equals() method.
+
+2) What does the hashCode() method?
+The hashCode() method returns a hash code value (an integer number).
+The hashCode() method returns the same integer number if two keys (by calling equals() method) are identical.
+
+However, it is possible that two hash code numbers can have different or the same keys.
+
+If two objects do not produce an equal result by using the equals() method, then the hashcode() method will provide the different integer result for both the objects.
