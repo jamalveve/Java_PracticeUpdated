@@ -40,8 +40,9 @@ so we can't change their value after they are created.
 Since strings are commonly used in applications, we need to perform several operations on them such as 
 substring(), equals(), indexof(), toUppercase(), etc.
  Each time we manipulate a string, a new String object is created, and all previous objects will be garbage,
-  placing a strain on the garbage collector. This is why The Java team developed StringBuffer. 
-  A StringBuffer is a mutable object, meaning it can be changed, but the string is an immutable object, so it cannot be changed once it has been created. 
+  placing a strain on the garbage collector. This is why The Java team developed Strung buider with miutable facility later then java team devolped StringBuffer. 
+  which is  is a mutable object (, meaning it can be changed, but the string is an immutable object, so it cannot be changed once it has been created.) as wells as 
+  thread sade also 
 
 
 

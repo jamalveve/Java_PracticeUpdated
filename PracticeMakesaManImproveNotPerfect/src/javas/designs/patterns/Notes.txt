@@ -1,0 +1,50 @@
+wwhy singleton pattern?
+#########################
+
+->using the singletonPattern we are going to create the object of the class or instantiate the class only one time
+-> it means we cant create multiple obj for the class (single copy)
+-> the obj is created only one copy and it is shared among all the threads
+
+
+How to achieve SingletonPattern?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+way 1:->Thread-Safe Singleton
+*****************************
+	->// 3 steps
+//	->private static instance variable of the class
+//	->private constructor
+//	->public synchronized static oneGetmethod 
+
+way 2:->Double-Checked Locking
+*******************************
+
+->// 3 steps
+//	->private static volatile instance variable of the class(volatile keyword helps threads
+//	->private constructor
+//	->public  static oneGetmethod which have synchronised double check 
+
+way 3:->Eager Initialization
+*****************************
+
+->// 3 steps
+//  ->private static final instance variable =new SingletonClass();
+//	->private constructor
+//  ->public static Singleton getInstance() {
+        return instance;
+    }
+
+way 4:->Enum Singleton
+***********************
+
+public enum Singleton {
+    INSTANCE;
+}
+
+
+Example Realtime Scenarios:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. Logging
+In many applications, a single logging instance is used throughout the application to log messages to a file or console.
+ Using a Singleton ensures that all parts of the application log through the same instance, maintaining consistency.
+ 
+ 

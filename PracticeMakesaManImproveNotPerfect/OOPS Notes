@@ -1,3 +1,59 @@
+Static Variable:
+##################
+Definition:
+^^^^^^^^^^^^
+->Static variables are shared among all instances of a class. This means that if one instance modifies a static variable, that change is reflected across all instances. 
+This is useful for values that should be common to all instances.
+->Static variables are allocated memory only once, at the class level, rather than each time an instance is created. This can help reduce memory usage when many instances of a class are created.
+->Static variables belong to the class itself rather than to any specific instance. They can be accessed directly using the class name,
+
+Key Points to Understand
+^^^^^^^^^^^^^^^^^^^^^^^^
+Single Copy:
+**********
+Static variables belong to the class itself, not to any particular instance. This means that all instances share the same static variable.
+Modification:
+************
+You can modify a static variable from outside the class if it is accessible (e.g., declared as public). Any changes made to that static variable will be reflected across all instances of the class.
+
+
+Why Static Variables Can Be Used in Both Contexts(static and nonstatic)?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Class-Level Context:
+Static variables belong to the class itself rather than any particular instance. This means that they can be accessed by any method in the class, regardless of whether that method is static or non-static.
+
+static variable access
+^^^^^^^^^^^^^^^^^^^^^^
+Static methods can modify static variables: They can manage shared data at the class level.
+Static methods cannot modify instance variables directly: They cannot reference or change data that belongs to specific instances.
+
+so:->////static variable can be modified inside any methods in the class level,but but non static variable can be modifed only inside Constrcutor or non static method 
+
+->Public Static Variables: Can be accessed and modified directly from outside the class using the class name.
+->Private Static Variables: Cannot be accessed directly; you need to use public static methods to modify or access them.
+
+Why Static Variables Can't Be Declared Inside Static Methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Scope:
+******
+Variables declared within a method (including static methods) have a local scope. They exist only during the execution of that method and are not accessible outside it.
+Static variables, by definition, are associated with the class rather than any instance or method, so declaring a static variable inside a method does not make sense in terms of object-oriented design.
+so->static methods cant be declared inside static contexts but you can access or modify .
+
+
+Summary
+Use Static Variables When:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+You need shared data across instances.
+You are defining constants or utility methods.
+The variable or method doesn't depend on instance-specific data.
+
+Use Non-Static Variables When:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You need instance-specific data that should differ from one instance to another.
+You want to encapsulate data for each object separately.
+You are working with inheritance and polymorphism, where each instance might have its own specific behavior.
+
 1)access specifier in java
 *****************************
 
@@ -1773,6 +1829,15 @@ StrungBuilder strbilfff=new StringBuilder("welcome");
 
 string immutable-->
 string buffer and string builder is mutable
+
+
+------------------------------------------------------------
+Feature	HashMap	ConcurrentHashMap
+Synchronization	Not synchronized	Synchronized (thread-safe)
+Null Keys/Values	Allows nulls	No null keys/values
+Performance	Better in single-thread	Better in multi-threaded
+Structural Modification	Requires external sync	Supports concurrent modifications
+Iterators	Fail-fast	Weakly consistent
 
 
 
